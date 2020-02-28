@@ -1,0 +1,24 @@
+#controls {
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+}
+
+#controls-zoom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    margin: 1em;
+
+    display: flex;
+    flex-direction: column;
+
+    button {
+        height: 2em;
+        width: 2em;
+
+        font-size: 1.5em;
+    }
+}
