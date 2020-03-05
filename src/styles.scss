@@ -6,6 +6,7 @@ body {
 }
 
 #plotter-container {
+
     position: relative;
 
     display: flex;
@@ -13,6 +14,8 @@ body {
 
     width: fit-content;
     max-width: 100%;
+
+    overflow-x: auto;
 
     margin: auto;
 }
@@ -58,7 +61,7 @@ button:hover {
     width: fit-content;
     margin: 0 auto;
     margin-bottom: 1em;
-    
+
     h1 {
         margin-bottom: 0;
     }
