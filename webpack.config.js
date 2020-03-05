@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'docs'),
@@ -21,6 +21,7 @@ module.exports = {
     },
     devtool: 'source-map',
     devServer: {
+        host: '0.0.0.0',
         contentBase: path.resolve(__dirname, 'docs'),
         historyApiFallback: true,
         port: 3000

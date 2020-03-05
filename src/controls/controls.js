@@ -4,19 +4,27 @@ import './styles.scss';
 
 export default class Controls extends React.Component {
 
+    constructor (props) {
+        super(props);
+    }
+
     startX = 0;
     startY = 0;
     
     handlePointerDown = (event) => {
         this.startX = event.screenX;
         this.startY = event.screenY;
+
+        console.log(`Started touch at (${ this.startX };${ this.startY })`);
     }
 
     handlePointerUp = (event) => {
-        const deltaX = (event.screenX - this.startX) * -1, deltaY = (event.screenY - this.startY) * -1;
+        const deltaX = event.screenX - this.startX, deltaY = this.startY - event.screenY ;
 
         if (Math.abs(deltaX) > 7 || Math.abs(deltaY) > 7)
             this.props.onDisplacement(deltaX, deltaY);
+
+        console.log(`Ended touch at (${ event.screenX };${ event.screenY })`);
     }
 
     handleZoomClick = (event) => {

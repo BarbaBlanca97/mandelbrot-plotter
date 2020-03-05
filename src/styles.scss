@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
 #plotter-container {
     position: relative;
 
@@ -5,4 +12,59 @@
     flex-direction: column;
 
     width: fit-content;
+    max-width: 100%;
+
+    margin: auto;
 }
+
+input {
+    background-color: #edf1f7;
+    border-radius: 5px;
+    padding: .5em 1em;
+    border-style: none;
+}
+
+button {
+    border-style: none;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: white;
+    padding: .5em 1em;
+}
+
+button:hover {
+    background-color: #6659c9;
+}
+
+@media only screen and ( min-width: 1080px ) {
+    #app {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    #plotter-container {
+        margin-right: 1em;
+        overflow-x: auto;
+    }
+
+    #config {
+        margin-left: 1em;
+    }
+}
+
+#header {
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    
+    h1 {
+        margin-bottom: 0;
+    }
+
+    ul {
+        font-size: .8em;
+    }
+}
+
