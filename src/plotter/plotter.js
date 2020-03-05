@@ -39,20 +39,21 @@ export default class Plotter extends React.Component {
 
         let startTime = Date.now();
 
+        const   originX = this.props.originX,
+                originY = this.props.originY;
+
         const   ctx = this.canvasRef.current.getContext('2d');
 
         const   canvasWidth = this.canvasRef.current.width, 
                 canvasHeight = this.canvasRef.current.height;
 
-        const   cOffsetX = Math.abs(this.props.originX - (( canvasWidth / 2 ) * this.props.step)), 
-                cOffsetY = Math.abs(this.props.originY - (( canvasHeight / 2 ) * this.props.step ));
+        const   cOffsetX = originX - (( canvasWidth / 2 ) * this.props.step), 
+                cOffsetY = originY - (( canvasHeight / 2 ) * this.props.step );
 
         const   imageData = ctx.createImageData(canvasWidth, canvasHeight);
 
         this.iterations = this.props.iterations;
 
-        const   originX = this.props.originX,
-                originY = this.props.originY;
 
         const   step = this.props.step;
 
@@ -70,7 +71,7 @@ export default class Plotter extends React.Component {
             for (let j = 0; j < canvasWidth; j++) {
                 let r, g, b, a = 255;
                     
-                const result = this.belongsToMandelbrot(-cOffsetX + ( step * j ), -cOffsetY + ( step * i ));
+                const result = this.belongsToMandelbrot(cOffsetX + ( step * j ), cOffsetY + ( step * i ));
                 if (result == 0) {
                     r = 0;
                     g = 0;
@@ -104,6 +105,6 @@ export default class Plotter extends React.Component {
     }
 
     render () {
-        return <canvas id='render-canvas' width='640' height='480' ref={ this.canvasRef } />;
+        return <canvas id='render-canvas' width='640' height='640' ref={ this.canvasRef } />;
     }
 }
